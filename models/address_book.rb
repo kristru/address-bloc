@@ -4,7 +4,7 @@ class AddressBook
   attr_reader :entries
 
   def initialize
-    @entries = []
+    @entries = [ ]
   end
 
   def add_entry(name, phone_number, email)
