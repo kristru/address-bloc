@@ -70,12 +70,13 @@ class MenuController
 
   def view_entry_number
     print "View entry number: "
-    entry_number = gets.chomp.to_i
+    entry_index = gets.chomp.to_i
+    entry_number = entry_index - 1
     if address_book.entries[entry_number].nil?
-      puts "Sorry that number is invalid\n\n"
+      puts "Sorry, entry number #{entry_number} is invalid\n\n"
       main_menu
     else
-      puts address_book.entries[entry_number]
+      puts address_book.entries[entry_number ]
       puts "\n\n"
     end
   end
