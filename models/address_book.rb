@@ -16,7 +16,7 @@ class AddressBook
       end
       index += 1
     end
-    entries.insert(index, Entry.new(name, phone_number, email))
+    @entries.insert(@entries.length, Entry.new(name, phone_number, email))
   end
 
   def import_from_csv(file_name)
@@ -29,6 +29,7 @@ class AddressBook
       row_hash = row.to_hash
       add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
     end
+    print @entries
   end
 
   def remove_entry(name, phone_number, email)
