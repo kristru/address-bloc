@@ -75,12 +75,12 @@ class MenuController
   def destroy_entries
     print "Are you sure you want to delete everyone? "
     answer = gets.chomp.upcase
-    puts "You said #{answer}"
 
     if answer == "YES"
-      puts "answer was yes"
+      address_book.entries.clear
+      puts "All entries have been deleted."
     elsif answer == "NO"
-      puts "answer was no"
+      puts "Alright, nothing will be deleted."
     else
       puts "Sorry, please write yes or no."
       destroy_entries
