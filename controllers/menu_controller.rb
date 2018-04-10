@@ -16,7 +16,8 @@ class MenuController
     puts "3 - Create an entry"
     puts "4 - Search for an entry"
     puts "5 - Import entries from a CSV"
-    puts "6 - Exit"
+    puts "6 - Destroy all entries"
+    puts "7 - Exit"
     print "Enter your selection: "
 
 #retrieves the selection from the command line
@@ -47,6 +48,9 @@ class MenuController
         read_csv
         main_menu
       when 6
+        system "clear"
+        destroy_entries
+      when 7
         puts "Good-bye!"
 #this terminates the program. 0 means it's closing without error
         exit(0)
@@ -66,6 +70,22 @@ class MenuController
     end
     system "clear"
     puts "End of entries"
+  end
+
+  def destroy_entries
+    print "Are you sure you want to delete everyone? "
+    answer = gets.chomp.upcase
+    puts "You said #{answer}"
+
+    if answer == "YES"
+      puts "answer was yes"
+    elsif answer == "NO"
+      puts "answer was no"
+    else
+      puts "Sorry, please write yes or no."
+      destroy_entries
+    end
+    main_menu
   end
 
   def view_entry_number
